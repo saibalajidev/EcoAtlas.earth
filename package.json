@@ -1,0 +1,22 @@
+{
+  "name": "ecoatlas",
+  "private": true,
+  "scripts": {
+    "format": "prettier --write \"**/*.{json,md,yml}\"",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3"
+  },
+  "lint-staged": {
+    "frontend/src/**/*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "backend/**/*.py": [
+      "python -m black --check backend || true"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+body { @apply bg-cream text-charcoal font-sans antialiased; }
+.dark body, .dark { color-scheme: dark; }
+
+.card { @apply bg-white dark:bg-forest-900 rounded-2xl border border-forest-100 dark:border-white/10 shadow-card; }
+.btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-xl bg-forest-800 hover:bg-forest-700 text-white font-semibold px-4 py-2.5 transition shadow-soft disabled:opacity-60; }
+.btn-ghost { @apply inline-flex items-center gap-2 rounded-xl border border-forest-100 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-2.5 text-sm font-medium hover:bg-forest-50 dark:hover:bg-white/10 transition; }
+.input { @apply w-full rounded-xl border border-forest-100 dark:border-white/10 bg-white dark:bg-white/5 px-3.5 py-2.5 text-sm outline-none focus:ring-2 focus:ring-forest-500/40 focus:border-forest-500 transition; }
+.label { @apply text-xs font-semibold uppercase tracking-wider text-forest-700/70 dark:text-white/60; }
+.badge { @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold; }
+.mapboxgl-popup-content { border-radius: 12px !important; font-family: Inter, sans-serif; }
