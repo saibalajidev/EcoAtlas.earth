@@ -16,6 +16,6 @@ services:
       - key: ACCESS_TOKEN_EXPIRE_MINUTES
         value: 1440
       - key: CORS_ORIGINS
-        value: https://eco-atlas-earth.vercel.app
+        value: https://eco-atlas-earth.vercel.app,https://*.vercel.app
       - key: DATABASE_URL
         value: sqlite:///./ecoatlas.db
