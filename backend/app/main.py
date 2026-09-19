@@ -26,6 +26,22 @@ app.include_router(platform.router)
 def _startup():
     try:
         Base.metadata.create_all(bind=engine)
+        # Auto-seed demo data on first run (fresh Render/Sqlite DB is empty)
+        from sqlalchemy import inspect
+        from sqlalchemy.orm import Session
+        from .core.database import SessionLocal
+        from .models import Project
+        try:
+            # Only seed if projects table is empty
+            db = SessionLocal()
+            if db.query(Project).count() == 0:
+                db.close()
+                from .seed import seed
+                seed()
+            else:
+                db.close()
+        except Exception as se:
+            print(f"Seed check skipped: {se}")
     except Exception as e:
         print(f"DB init warning: {e}")
 
